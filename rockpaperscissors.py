@@ -30,9 +30,9 @@ def determine_winner(user_choice, computer_choice):
     if user_choice == computer_choice:
         return f"It's a tie. You both picked {computer_choice}"
     elif (user_choice == "rock" and computer_choice == "scissors") or (user_choice == "paper" and computer_choice == "rock") or (user_choice == "scissors" and computer_choice == "paper"):
-        return f"User wins! The user choice was {user_choice} and computer choice was {computer_choice}"
+        return f"User wins! {user_choice} wins against {computer_choice}"
     else:
-        return f"Computer wins! The computer choice was {computer_choice} and user choice was {user_choice}"
+        return f"Computer wins! {computer_choice} wins against {user_choice}"
 
 print(get_user_choice())
 print(get_computer_choice())
