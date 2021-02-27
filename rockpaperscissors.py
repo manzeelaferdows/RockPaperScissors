@@ -16,13 +16,13 @@ def get_user_choice():
     user_choice = (input("Do you want 'r' Rock, 'p' Paper or 's' Scissors? ")).lower()
     if (user_choice == 'r') or (user_choice == 'rock'):
         user_choice = "rock"
-        return f"Your choice is: {user_choice}"
+        return f"Your choice is: {user_choice.capitalize()}"
     elif (user_choice == 'p') or (user_choice == 'paper'):
         user_choice = "paper"
-        return f"Your choice is: {user_choice}"
+        return f"Your choice is: {user_choice.capitalize()}"
     elif (user_choice == 's') or (user_choice == 'scissors'):
         user_choice = "scissors"
-        return f"Your choice is: {user_choice}"
+        return f"Your choice is: {user_choice.capitalize()}"
     else:
         print("Error! Not a valid choice.")
         return get_user_choice()
@@ -32,13 +32,13 @@ def get_computer_choice():
     computer_choice = random.randint(0, 2)
     if computer_choice == 0:
         computer_choice = "rock"
-        return "Computer choice is: rock"
+        return f"Computer choice is: {computer_choice.capitalize()}"
     elif computer_choice == 1:
         computer_choice = "scissors"
-        return "Computer choice is: scissors"
+        return f"Computer choice is: {computer_choice.capitalize()}"
     else:
         computer_choice = "paper"
-        return "Computer choice is: paper"
+        return f"Computer choice is: {computer_choice.capitalize()}"
 
 def determine_winner():
     if user_choice == computer_choice:
