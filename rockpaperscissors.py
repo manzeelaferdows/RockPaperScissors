@@ -1,16 +1,16 @@
 import random
 #get user input
 
-def get_user_choice(user_choice):
+def play():
     user_choice = (input("Do you want 'r' Rock, 'p' Paper or 's' Scissors? ")).lower()
     if (user_choice == 'r') or (user_choice == 'rock'):
-        print(f"User choice is: {user_choice}")
+        return(f"User choice is: {user_choice}")
     elif (user_choice == 'p') or (user_choice == 'paper'):
-        print(f"User choice is: {user_choice}")
+        return(f"User choice is: {user_choice}")
     elif (user_choice == 's') or (user_choice == 'scissors'):
-        print(f"User choice is: {user_choice}")
+        return(f"User choice is: {user_choice}")
     else:
-        print("Error! Not a valid choice")
+        return("Error! Not a valid choice")
 #def user_choice(choice):
 def get_computer_choice(computer_choice):
     computer_choice = random.randint(0, 2)
@@ -24,7 +24,17 @@ def get_computer_choice(computer_choice):
         computer_choice = "paper"
         print(computer_choice)
 
-# get_user_choice()
+def determine_winner(user_choice, computer_choice):
+    if user_choice == computer_choice:
+        print(f"It's a tie. You both picked {computer_choice}")
+    elif (user_choice == "rock" and computer_choice == "scissors") or (user_choice == "paper" and computer_choice == "rock") or (user_choice == "scissors" and computer_choice == "paper"):
+        print("user choice wins")
+    else:
+        print("computer wins")
+
+determine_winner("rock", "paper")
+
+
 
 #use random to calculate the computer choice
 #use conditionals to determine the winner
