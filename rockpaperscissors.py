@@ -8,30 +8,29 @@ def get_rules_of_rock_paper_scissors():
     elif (instructions == 'n') or (instructions == 'no'):
         return "To play the game, you have the option to pick either rock, paper or scissors\nTo win, rock beats scissors, scissors beats paper and paper beats rock\nYour opponent is the computer, may the best player win!"
     else:
-        return "Input not recognised. Please type 'y' for yes and 'n' for no."
+        print("Input not recognised. Please type 'y' for yes and 'n' for no.")
+        return get_rules_of_rock_paper_scissors()
 
 def get_user_choice():
     global user_choice
     user_choice = (input("Do you want 'r' Rock, 'p' Paper or 's' Scissors? ")).lower()
     if (user_choice == 'r') or (user_choice == 'rock'):
         user_choice = "rock"
-        return f"User choice is: {user_choice}"
+        return f"Your choice is: {user_choice}"
     elif (user_choice == 'p') or (user_choice == 'paper'):
         user_choice = "paper"
-        return f"User choice is: {user_choice}"
+        return f"Your choice is: {user_choice}"
     elif (user_choice == 's') or (user_choice == 'scissors'):
         user_choice = "scissors"
-        return f"User choice is: {user_choice}"
+        return f"Your choice is: {user_choice}"
     else:
-        user_choice = "invalid"
-        return "Error! Not a valid choice"
+        print("Error! Not a valid choice.")
+        return get_user_choice()
 
 def get_computer_choice():
     global computer_choice
     computer_choice = random.randint(0, 2)
-    if user_choice == "invalid":
-        return "Computer will only respond to rock, paper or scissors."
-    elif computer_choice == 0:
+    if computer_choice == 0:
         computer_choice = "rock"
         return "Computer choice is: rock"
     elif computer_choice == 1:
@@ -42,12 +41,10 @@ def get_computer_choice():
         return "Computer choice is: paper"
 
 def determine_winner():
-    if user_choice == "invalid":
-        return "Rerun and start the game again."
-    elif user_choice == computer_choice:
+    if user_choice == computer_choice:
         return f"It's a tie. You both picked {computer_choice}"
     elif (user_choice == "rock" and computer_choice == "scissors") or (user_choice == "paper" and computer_choice == "rock") or (user_choice == "scissors" and computer_choice == "paper"):
-        return f"User wins! {user_choice.capitalize()} wins against {computer_choice}"
+        return f"Yay! You won! {user_choice.capitalize()} wins against {computer_choice}"
     else:
         return f"Computer wins! {computer_choice.capitalize()} wins against {user_choice}"
 
