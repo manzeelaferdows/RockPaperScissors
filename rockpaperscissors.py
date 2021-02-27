@@ -24,7 +24,7 @@ def get_user_choice():
         user_choice = "scissors"
         return f"Your choice is: {user_choice.capitalize()}"
     else:
-        print("Error! Not a valid choice.")
+        print(f"Error! {user_choice.capitalize()} is not a valid choice. Try again.")
         return get_user_choice()
 
 def get_computer_choice():
