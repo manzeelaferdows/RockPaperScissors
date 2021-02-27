@@ -1,5 +1,5 @@
 import random
-#get user input
+
 def get_rules_of_rock_paper_scissors():
     print("Welcome to Rock, Paper, Scissors!")
     instructions = (input("Do you know the rules of the game? Type 'y' for yes and 'n' for no ")).lower()
@@ -25,11 +25,13 @@ def get_user_choice():
     else:
         user_choice = "invalid"
         return "Error! Not a valid choice"
-#def user_choice(choice):
+
 def get_computer_choice():
     global computer_choice
     computer_choice = random.randint(0, 2)
-    if computer_choice == 0:
+    if user_choice == "invalid":
+        return "Computer will only respond to rock, paper or scissors."
+    elif computer_choice == 0:
         computer_choice = "rock"
         return "Computer choice is: rock"
     elif computer_choice == 1:
@@ -39,9 +41,9 @@ def get_computer_choice():
         computer_choice = "paper"
         return "Computer choice is: paper"
 
-def determine_winner(user_choice, computer_choice):
+def determine_winner():
     if user_choice == "invalid":
-        return "Your choice is invalid! Try again."
+        return "Rerun and start the game again."
     elif user_choice == computer_choice:
         return f"It's a tie. You both picked {computer_choice}"
     elif (user_choice == "rock" and computer_choice == "scissors") or (user_choice == "paper" and computer_choice == "rock") or (user_choice == "scissors" and computer_choice == "paper"):
@@ -53,9 +55,5 @@ def determine_winner(user_choice, computer_choice):
 print(get_rules_of_rock_paper_scissors())
 print(get_user_choice())
 print(get_computer_choice())
-print(determine_winner(user_choice, computer_choice))
-
-
-#use random to calculate the computer choice
-#use conditionals to determine the winner
+print(determine_winner())
 
