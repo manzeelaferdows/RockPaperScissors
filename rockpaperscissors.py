@@ -41,7 +41,7 @@ def get_computer_choice():
         computer_choice = "paper"
         return f"Computer choice is: {computer_choice.capitalize()}"
 
-def determine_winner():
+def determine_winner(user_choice, computer_choice):
     if user_choice == computer_choice:
         return f"It's a tie. You both picked {computer_choice}"
     elif (user_choice == "rock" and computer_choice == "scissors") or (user_choice == "paper" and computer_choice == "rock") or (user_choice == "scissors" and computer_choice == "paper"):
@@ -63,12 +63,12 @@ def another_round():
 print(get_rules_of_rock_paper_scissors())
 print(get_user_choice())
 print(get_computer_choice())
-print(determine_winner())
+print(determine_winner(user_choice, computer_choice))
 print(another_round())
 
 while play_again == "yes":
     print(get_user_choice())
     print(get_computer_choice())
-    print(determine_winner())
+    print(determine_winner(user_choice, computer_choice))
     print(another_round())
 
