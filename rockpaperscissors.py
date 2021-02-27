@@ -27,6 +27,7 @@ def get_user_choice():
         print(f"Error! {user_choice.capitalize()} is not a valid choice. Try again.")
         return get_user_choice()
 
+
 def get_computer_choice():
     global computer_choice
     computer_choice = random.randint(0, 2)
@@ -41,16 +42,41 @@ def get_computer_choice():
         return f"Computer choice is: {computer_choice.capitalize()}"
 
 def determine_winner():
+    global computer_wins_count
+    global user_wins_count
+    computer_wins_count = 0
+    user_wins_count = 0
     if user_choice == computer_choice:
+        computer_wins_count += 1
+        user_wins_count += 1
         return f"It's a tie. You both picked {computer_choice}"
     elif (user_choice == "rock" and computer_choice == "scissors") or (user_choice == "paper" and computer_choice == "rock") or (user_choice == "scissors" and computer_choice == "paper"):
+        user_wins_count += 1
         return f"Yay! You won! {user_choice.capitalize()} wins against {computer_choice}"
     else:
+        computer_wins_count += 1
         return f"Computer wins! {computer_choice.capitalize()} wins against {user_choice}"
 
+def another_round():
+    global play_again
+    play_again = (input("Another round? Yes or no? ")).lower()
+    if play_again == "yes":
+        return "Yay! Let's play again!"
+    elif play_again == "no":
+        return "Sad to see you go, let's play again another time!"
+    else:
+        print("Invalid response. Please type yes or no.")
+        return another_round()
 
 print(get_rules_of_rock_paper_scissors())
 print(get_user_choice())
 print(get_computer_choice())
 print(determine_winner())
+print(another_round())
+
+while play_again == "yes":
+    print(get_user_choice())
+    print(get_computer_choice())
+    print(determine_winner())
+    print(another_round())
 
