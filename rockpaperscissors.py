@@ -42,19 +42,11 @@ def get_computer_choice():
         return f"Computer choice is: {computer_choice.capitalize()}"
 
 def determine_winner():
-    global computer_wins_count
-    global user_wins_count
-    computer_wins_count = 0
-    user_wins_count = 0
     if user_choice == computer_choice:
-        computer_wins_count += 1
-        user_wins_count += 1
         return f"It's a tie. You both picked {computer_choice}"
     elif (user_choice == "rock" and computer_choice == "scissors") or (user_choice == "paper" and computer_choice == "rock") or (user_choice == "scissors" and computer_choice == "paper"):
-        user_wins_count += 1
         return f"Yay! You won! {user_choice.capitalize()} wins against {computer_choice}"
     else:
-        computer_wins_count += 1
         return f"Computer wins! {computer_choice.capitalize()} wins against {user_choice}"
 
 def another_round():
